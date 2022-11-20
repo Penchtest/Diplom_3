@@ -33,7 +33,7 @@ public class LoginTest extends BaseUITest {
     @After
     public void logout() {
         MainPage mainPage = page(MainPage.class);
-        mainPage.goToPersonalAccount();
+        mainPage.personalAccountClick();
         PersonalAccountPage personalAccount = page(PersonalAccountPage.class);
         personalAccount.logoutButtonClick();
         LoginPage loginPage = page(LoginPage.class);
@@ -50,7 +50,8 @@ public class LoginTest extends BaseUITest {
     @DisplayName("Login via \"Enter account\" should be successful")
     public void loginViaEnterAccountShouldBeSuccessful() {
         MainPage mainPage = open(BASE_URI, MainPage.class);
-        LoginPage loginPage = mainPage.enterAccountClick();
+        mainPage.enterAccountClick();
+        LoginPage loginPage = page(LoginPage.class);
         loginPage.fillLoginForm(userData);
         mainPage.checkAuthByOrderButton();
     }
@@ -59,7 +60,8 @@ public class LoginTest extends BaseUITest {
     @DisplayName("Login via \"Personal account\" should be successful")
     public void loginViaPersonalAccountShouldBeSuccessful() {
         MainPage mainPage = open(BASE_URI, MainPage.class);
-        LoginPage loginPage = mainPage.personalAccountClick();
+        mainPage.personalAccountClick();
+        LoginPage loginPage = page(LoginPage.class);
         loginPage.fillLoginForm(userData);
         mainPage.checkAuthByOrderButton();
     }
@@ -79,12 +81,10 @@ public class LoginTest extends BaseUITest {
     @DisplayName("Login via \"Forgot Password\" should be successful")
     public void loginViaForgotPasswordShouldBeSuccessful() {
         ForgotPasswordPage forgotPasswordPage = open(FORGOT_PASSWORD_URI, ForgotPasswordPage.class);
-        forgotPasswordPage.enterAccountClick();
+        forgotPasswordPage.enterAccountLinkClick();
         LoginPage loginPage = page(LoginPage.class);
         loginPage.fillLoginForm(userData);
         MainPage mainPage = page(MainPage.class);
         mainPage.checkAuthByOrderButton();
     }
-
-
 }

@@ -25,7 +25,6 @@ public class BaseUITest {
         setWebDriver(driver);
     }
 
-
     @After
     public void clearData() {
         driver.manage().deleteAllCookies();

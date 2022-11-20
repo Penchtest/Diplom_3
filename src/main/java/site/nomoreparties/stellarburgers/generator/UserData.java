@@ -1,7 +1,6 @@
 package site.nomoreparties.stellarburgers.generator;
 
 public class UserData {
-
     private String email;
     private String password;
     private String name;

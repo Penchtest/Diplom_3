@@ -1,6 +1,5 @@
 package site.nomoreparties.stellarburgers;
 
-
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +16,6 @@ public class ConstructorTest extends BaseUITest{
     public void openMainPage() {
         mainPage = open(BASE_URI, MainPage.class);
     }
-
 
     @Test
     @DisplayName("Move to buns should be successful")
@@ -36,5 +34,4 @@ public class ConstructorTest extends BaseUITest{
     public void moveToMainsShouldBeSuccessful() {
         Assert.assertTrue("Переход к разделу Начинки не произошел", mainPage.checkMainsSelected());
     }
-
 }

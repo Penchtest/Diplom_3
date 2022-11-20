@@ -27,7 +27,6 @@ public class RegistrationTest extends BaseUITest {
         userData = new UserData();
     }
 
-
     @Test
     @DisplayName("Registration with correct data should be successful")
     public void registrationWithCorrectDataShouldBeSuccessful() {
@@ -62,5 +61,4 @@ public class RegistrationTest extends BaseUITest {
             userRequest.delete(accessToken);
         }
     }
-
 }

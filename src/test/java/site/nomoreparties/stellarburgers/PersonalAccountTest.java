@@ -32,6 +32,7 @@ public class PersonalAccountTest extends BaseUITest {
         if (accessTokenFull != null)
             accessToken = accessTokenFull.replace("Bearer ", "");
     }
+
     @Before
     public void login(){
         LoginPage loginPage = open(LOGIN_URI, LoginPage.class);
@@ -48,7 +49,7 @@ public class PersonalAccountTest extends BaseUITest {
     @DisplayName("Navigate to personal account should be successful")
     public void navigateToAccountShouldBeSuccessful() {
         MainPage mainPage = page(MainPage.class);
-        mainPage.goToPersonalAccount();
+        mainPage.personalAccountClick();
         Selenide.sleep(500);
         assertEquals(ACCOUNT_URI, WebDriverRunner.getWebDriver().getCurrentUrl());
     }
@@ -57,7 +58,7 @@ public class PersonalAccountTest extends BaseUITest {
     @DisplayName("Logo button click should move to main page")
     public void logoButtonClickShouldMoveToMainPage() {
         MainPage mainPage = page(MainPage.class);
-        mainPage.goToPersonalAccount();
+        mainPage.personalAccountClick();
         PersonalAccountPage personalAccountPage = page(PersonalAccountPage.class);
         personalAccountPage.logoButtonClick();
         assertEquals(BASE_URI + "/", WebDriverRunner.getWebDriver().getCurrentUrl());
@@ -67,7 +68,7 @@ public class PersonalAccountTest extends BaseUITest {
     @DisplayName("Constructor button click should move to main page")
     public void constructorButtonClickShouldMoveToMainPage() {
         MainPage mainPage = page(MainPage.class);
-        mainPage.goToPersonalAccount();
+        mainPage.personalAccountClick();
         PersonalAccountPage personalAccountPage = page(PersonalAccountPage.class);
         personalAccountPage.constructorButtonClick();
         assertEquals(BASE_URI + "/", WebDriverRunner.getWebDriver().getCurrentUrl());
@@ -77,12 +78,10 @@ public class PersonalAccountTest extends BaseUITest {
     @DisplayName("Logout should be successful")
     public void logoutShouldBeSuccessful() {
         MainPage mainPage = page(MainPage.class);
-        mainPage.goToPersonalAccount();
+        mainPage.personalAccountClick();
         PersonalAccountPage personalAccount = page(PersonalAccountPage.class);
         personalAccount.logoutButtonClick();
         LoginPage loginPage = page(LoginPage.class);
         loginPage.checkLogoutByLoginButton();
     }
-
 }
-
